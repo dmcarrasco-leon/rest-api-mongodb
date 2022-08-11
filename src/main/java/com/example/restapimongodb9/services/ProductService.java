@@ -56,6 +56,15 @@ public class ProductService {
         return products;
     }
 
+    public List<Product> getBestSellers()
+    {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("bestSeller").is(true));
+
+        List<Product> products =  mongoTemplate.find(query, Product.class);
+        return products;
+    }
+
     public void insertIntoProducts(Product product)
     {
         repository.insert(product);

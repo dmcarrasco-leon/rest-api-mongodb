@@ -57,6 +57,14 @@ public class ProductController {
         return new ResponseEntity(customizedResponse, HttpStatus.OK);
     }
 
+    @GetMapping("/products/bestseller")
+    public ResponseEntity getBestSellers()
+    {
+        var customizedResponse = new CustomizedResponse(" A list of best sellers "
+                , service.getBestSellers());
+        return new ResponseEntity(customizedResponse, HttpStatus.OK);
+    }
+
     // Get movie or tv show
     @GetMapping("/products/{id}")
     public ResponseEntity getAProduct(@PathVariable("id") String id)
